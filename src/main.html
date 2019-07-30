@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<body>
+        <div class="row">
+                <div class="col-4">1</div>
+                <div class="col-4">1</div>
+                <div class="col-4">1</div>
+        </div>
+    <div style="background-color: red; padding:10px">test 1
+        <h2>tt</h2>
+        <h3>hhh</h3>
+        <span>span1</span>
+        <span>span2</span>
+        
+<ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ul>  
+<ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ul>
+<p>11</p>
+<p>12</p>
+
+    </div>
+    <div>test2
+        <button>b1</button>
+        <button>b2</button>
+    </div>
+<p></p>
+<p id="demo"></p>
+
+<script>
+
+var rows = 5;
+var columns = 5;
+var arr = [];
+var max = 60;
+var min = 20
+var total_items = rows * columns;
+while(arr.length < total_items){
+    var r = Math.floor(Math.random()*(max-min)) + min;
+    if(arr.indexOf(r) === -1) arr.push(r);
+}
+var count = 0
+var table = document.createElement('table');
+table.setAttribute("class", "border_class");
+for (var i = 0; i < rows; i++){
+    var tr = document.createElement('tr'); 
+	for(var j=0;j<columns;j++){
+     
+    var td = document.createElement('td');
+    if(arr[count]%3==0) {
+        td.setAttribute("class", "bold_font");
+    }
+    if(arr[count]%5==0) {
+        var cell_class = td.getAttribute('class') || '';
+        cell_class += ' red_font'; 
+        td.setAttribute("class", cell_class);
+    }
+    var text = document.createTextNode(arr[count]);
+    count++
+
+    td.appendChild(text);
+  
+    tr.appendChild(td);
+    
+    }
+    table.appendChild(tr);
+}
+document.body.appendChild(table);
+</script>
+
+</body>
+<style>
+.bold_font{
+        font-weight:bold
+}
+.red_font{
+    color: red
+}
+</style>
+</html>
+
+
+
